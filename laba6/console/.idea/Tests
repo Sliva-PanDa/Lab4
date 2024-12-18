@@ -1,0 +1,41 @@
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
+import org.junit.jupiter.api.Test;
+
+public class BubbleSortTest {
+
+    @Test
+    public void testSortEmptyArray() {
+        int[] array = new int[0];
+        BubbleSort.sort(array);
+        assertArrayEquals(new int[0], array);
+    }
+
+    @Test
+    public void testSortSingleElementArray() {
+        int[] array = { 1 };
+        BubbleSort.sort(array);
+        assertArrayEquals(new int[] { 1 }, array);
+    }
+
+    @Test
+    public void testSortAlreadySortedArray() {
+        int[] array = { 1, 2, 3, 4, 5 };
+        BubbleSort.sort(array);
+        assertArrayEquals(new int[] { 1, 2, 3, 4, 5 }, array);
+    }
+
+    @Test
+    public void testSortUnsortedArray() {
+        int[] array = { 5, 3, 1, 4, 2 };
+        BubbleSort.sort(array);
+        assertArrayEquals(new int[] { 1, 2, 3, 4, 5 }, array);
+    }
+
+    @Test
+    public void testSortArrayWithDuplicates() {
+        int[] array = { 4, 2, 2, 5, 3 };
+        BubbleSort.sort(array);
+        assertArrayEquals(new int[] { 2, 2, 3, 4, 5 }, array);
+    }
+}
